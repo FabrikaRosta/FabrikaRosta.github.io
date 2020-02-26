@@ -4,25 +4,22 @@ require_once('phpmailer/PHPMailerAutoload.php');
 $mail = new PHPMailer;
 $mail->CharSet = 'utf-8';
 
-$lastname = $_POST['lastname'];
 $name = $_POST['name'];
-$patronymic = $_POST['patronymic'];
 $email = $_POST['email'];
 $phone = $_POST['phone'];
-$tarea = $_POST['tarea'];
 
 //$mail->SMTPDebug = 3;                               // Enable verbose debug output
 
 $mail->isSMTP();                                      // Set mailer to use SMTP
 $mail->Host = 'smtp.mail.ru';  																							// Specify main and backup SMTP servers
 $mail->SMTPAuth = true;                               // Enable SMTP authentication
-$mail->Username = 'ruslan_98.6@mail.ru'; // Ваш логин от почты с которой будут отправляться письма
-$mail->Password = 'FD15935746b'; // Ваш пароль от почты с которой будут отправляться письма
+$mail->Username = 'andrey5_01@mail.ru'; // Ваш логин от почты с которой будут отправляться письма
+$mail->Password = 'fs.rw$4pM'; // Ваш пароль от почты с которой будут отправляться письма
 $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
 $mail->Port = 465; // TCP port to connect to / этот порт может отличаться у других провайдеров
 
-$mail->setFrom('ruslan_98.6@mail.ru'); // от кого будет уходить письмо?
-$mail->addAddress('armen16091998@icloud.com');     // Кому будет уходить письмо 
+$mail->setFrom('andrey5_01@mail.ru'); // от кого будет уходить письмо?
+$mail->addAddress('andrey.fl.2017@yandex.ru');     // Кому будет уходить письмо 
 //$mail->addAddress('ellen@example.com');               // Name is optional
 //$mail->addReplyTo('info@example.com', 'Information');
 //$mail->addCC('cc@example.com');
@@ -32,12 +29,12 @@ $mail->addAddress('armen16091998@icloud.com');     // Кому будет ухо
 $mail->isHTML(true);                                  // Set email format to HTML
 
 $mail->Subject = 'Новый консультант с сайта Fabrika Rosta';
-$mail->Body    = '' .$lastname. ' ' .$name. ' ' .$patronymic. ' оставил заявку, его телефон ' .$phone. '<br>Почта этого пользователя: ' .$email. '<br>Сообщение: ' .$tarea;
+$mail->Body    = $name. ' оставил заявку, его телефон ' .$phone. '<br>Почта нового консультанта: ' .$email;
 
 //'' .$name . ' оставил заявку, его телефон ' .$tel. '<br>Почта этого пользователя: 
 //' .$email;
 //$mail->AltBody = '';
-if ($_POST['check'] != 'secretcode') exit('Spam decected');
+// if ($_POST['check'] != 'secretcode') exit('Spam decected');
 
 if(!$mail->send()) {
     echo 'Error';
@@ -45,3 +42,4 @@ if(!$mail->send()) {
     header('location: thank.html');
 }
 ?>
+

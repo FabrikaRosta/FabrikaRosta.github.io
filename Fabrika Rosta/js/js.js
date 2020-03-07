@@ -86,7 +86,7 @@ $(document).ready(function(){
 		menuOpen.addClass('animated fadeInRight');
 	});
 
-	/*SCROL MENU #$136bo295$#*/
+	/*SCROL MENU #$136sc295$#*/
 
 	$('#home').on('click', function(e){
 		$('html,body').stop().animate({ scrollTop: $('.header').offset().top }, 1000);
